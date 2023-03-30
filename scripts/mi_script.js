@@ -5,7 +5,7 @@ let img = document.getElementById('image')
 let boxResult = document.querySelector('.box-result')
 let confidence = document.querySelector('.confidence')
 let pconf = document.querySelector('.box-result p')
-let json_busqueda
+
 let img_busqueda;
 
 fileUpload.addEventListener('change', function(e){
@@ -35,39 +35,39 @@ fileUpload.addEventListener('change', function(e){
             
             img.style.display = "block"
             img.setAttribute('src', this.result);
-            console.log("Img busqueda: " + file.name);
-            img_busqueda = file.name;
+            console.log("Img busqueda dentro: " + file.name);
             // ------------------------------------------------------------------------------------------PENDIENTE GUARDAR EN VARIABLE
         });
+        img_busqueda = file.name;
+
+        console.log("Img busqueda afuera: " + img_busqueda);
+
+        async function nearestNeighbors() {
+            
+            console.log("RUTA: ./nearest_neighbors/" + img_busqueda + ".json");
+            const response = await fetch("./nearest_neighbors/529.jpg.json") 
+            //const response = await fetch("./nearest_neighbors/" + img_busqueda + ".json"); // ----------------------------------------USAR VARIABLE
+            const json_busqueda = await response.json();
+            
+            console.log(json_busqueda);
+    
+                console.log("json_busqueda: " + img_busqueda + ".json");
+                console.log("Resultado 0: " + json_busqueda[0].filename + ".jpg");
+                console.log("Resultado 1: " + json_busqueda[1].filename + ".jpg");
+                console.log("Resultado 2: " + json_busqueda[2].filename + ".jpg");
+                console.log("Resultado 3: " + json_busqueda[3].filename + ".jpg");
+                console.log("Resultado 4: " + json_busqueda[4].filename + ".jpg");
+    
+                document.getElementById("result_1").setAttribute("src",  ("./images/" + json_busqueda[1].filename + ".jpg"));
+                document.getElementById("result_2").setAttribute("src",  ("./images/" + json_busqueda[2].filename + ".jpg"));
+                document.getElementById("result_3").setAttribute("src",  ("./images/" + json_busqueda[3].filename + ".jpg"));
+                document.getElementById("result_4").setAttribute("src",  ("./images/" + json_busqueda[4].filename + ".jpg"));
+                document.getElementById("result_5").setAttribute("src",  ("./images/" + json_busqueda[5].filename + ".jpg"));
+             }
+        nearestNeighbors();
     }
     
-    async function nearestNeighbors() {
-        const response = await fetch("./nearest_neighbors/529.jpg.json") 
-        //const response = await fetch("./nearest_neighbors/" + img_busqueda + ".json") // ----------------------------------------USAR VARIABLE
-        const json_busqueda = await response.json()
-            console.log("json busqueda: " + img_busqueda + ".json");
 
-            console.log("Resultado 0: " + json_busqueda[0].filename + ".jpg");
-            console.log("Resultado 1: " + json_busqueda[1].filename + ".jpg");
-            console.log("Resultado 2: " + json_busqueda[2].filename + ".jpg");
-            console.log("Resultado 3: " + json_busqueda[3].filename + ".jpg");
-            console.log("Resultado 4: " + json_busqueda[4].filename + ".jpg");
-
-            document.getElementById("result_1").setAttribute("src",  ("./images/" + json_busqueda[1].filename + ".jpg"));
-            document.getElementById("result_2").setAttribute("src",  ("./images/" + json_busqueda[2].filename + ".jpg"));
-            document.getElementById("result_3").setAttribute("src",  ("./images/" + json_busqueda[3].filename + ".jpg"));
-            document.getElementById("result_4").setAttribute("src",  ("./images/" + json_busqueda[4].filename + ".jpg"));
-            document.getElementById("result_5").setAttribute("src",  ("./images/" + json_busqueda[5].filename + ".jpg"));
-         }
-            // .then((data) => console.log(data));
-            //.then((data) => console.log(data[1].filename + ".jpg"))
-            //.then((data) => document.getElementById("result_1").setAttribute("src",  (data[0].filename + ".jpg")));
-             //document.getElementById("result_1").setAttribute("src",  (data[1].filename + ".jpg"));
-      
-
-    nearestNeighbors();
-
-    // for ( var i = 0; i < 5; i++){
-    //     console.log(json.name[i]);
-    //} 
+           
+    //nearestNeighbors();
 })
