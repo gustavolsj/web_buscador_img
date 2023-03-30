@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clasificación de la Tipología Fotográfica</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/style/style_planta.css">
+</head>
+
+<body>
+    <h1>Clasificación de la Tipología Fotográfica</h1>
+    <p>Aplicación web construida con ❤️ para los archivistas latinoamericanos utilizando Tensorflow, Tensorflow.js,
+        Python, Javascript, HTML5</p>
+
+    <p>Para saber como funciona visita este 😇 <a
+            href="https://medium.com/@rexsimiloluwa/building-a-plant-disease-classification-web-app-in-keras-and-tensorflow-js-d435829213fa"
+            target="blank">enlace </a> →
+    </p>
+    <hr>
+
+    <!-- --------------------------------------CARGA IMAGEN----------------------------------------------- -->
+    <div class="row">
+        <div class="upload-btn-wrapper">
+            <button class="btn upload-file font-weight-100">
+                <span class="upload-btn">
+                    <i class="material-icons d-block font-20 pb-2">cloud_upload</i>
+                    <p id="choose-text-1">Seleciona una imagen de la fotografía a identificar</p>
+                </span>
+                <span class="upload-select-button" id="blankFile-1">
+                    *archivos de tipo .png, .jpg, .jpeg, .jfif
+                </span>
+                <span class="success-1">
+                    <i class="material-icons text-success">check</i>
+                </span>
+            </button>
+            <input type="file" name="uploadImage" id="uploadImage">
+        </div>
+
+        <!-- ---------------------------------------IMAGEN BUSQUEDA----------------------------------------- -->
+
+
+        <div class="box">
+            <img src="" alt="" id="image" width="224" height="224">
+        </div>
+
+
+    </div>
+    <!-- ---------------------------------------RESULTADO----------------------------------------- -->
+    <div class="row_resultados">
+        <div class="box_resultado">
+            <img src="" alt="" id="result_1" width="224" height="224">
+        </div>
+        <div class="box_resultado">
+            <img src="" alt="" id="result_2" width="224" height="224">
+        </div>
+        <div class="box_resultado">
+            <img src="" alt="" id="result_3" width="224" height="224">
+        </div>
+        <div class="box_resultado">
+            <img src="" alt="" id="result_4" width="224" height="224">
+        </div>
+        <div class="box_resultado">
+            <img src="" alt="" id="result_5" width="224" height="224">
+        </div>
+
+    </div>
+
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tensorflow/2.0.1/tf.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/progressbar.js/1.0.1/progressbar.min.js"></script>
+    <script src="/scripts/mi_script.js"></script>
+</body>
+
+</html>
