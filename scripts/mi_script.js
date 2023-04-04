@@ -7,6 +7,8 @@ let confidence = document.querySelector('.confidence')
 let pconf = document.querySelector('.box-result p')
 
 let img_busqueda;
+let json_busqueda;
+let ruta;
 
 fileUpload.addEventListener('change', function(e){
             
@@ -36,38 +38,57 @@ fileUpload.addEventListener('change', function(e){
             img.style.display = "block"
             img.setAttribute('src', this.result);
             console.log("Img busqueda dentro: " + file.name);
-            // ------------------------------------------------------------------------------------------PENDIENTE GUARDAR EN VARIABLE
         });
         img_busqueda = file.name;
 
         console.log("Img busqueda afuera: " + img_busqueda);
+        console.log("RUTA: ./nearest_neighbors/" + img_busqueda + ".json");
+        ruta = "./nearest_neighbors/" + img_busqueda + ".json";
+        console.log(ruta);
+    }     
+    async function nearestNeighbors(){
+        let response = await fetch(ruta);
+        let data = await response.json();
+        data = JSON.stringify(data);
+        data = JSON.parse(data);
+        console.log("Resultado 1: " + data[1].filename + ".jpg");
+        console.log("Resultado 2: " + data[2].filename + ".jpg");
+        console.log("Resultado 3: " + data[3].filename + ".jpg");
+        console.log("Resultado 4: " + data[4].filename + ".jpg");
 
-        async function nearestNeighbors() {
+        document.getElementById("result_5").setAttribute("src",  ("./images/" + data[0].filename + ".jpg"));
+        document.getElementById("result_1").setAttribute("src",  ("./images/" + data[1].filename + ".jpg"));
+        document.getElementById("result_2").setAttribute("src",  ("./images/" + data[2].filename + ".jpg"));
+        document.getElementById("result_3").setAttribute("src",  ("./images/" + data[3].filename + ".jpg"));
+        document.getElementById("result_4").setAttribute("src",  ("./images/" + data[4].filename + ".jpg"));
             
-            console.log("RUTA: ./nearest_neighbors/" + img_busqueda + ".json");
-            const response = await fetch("./nearest_neighbors/529.jpg.json") 
-            //const response = await fetch("./nearest_neighbors/" + img_busqueda + ".json"); // ----------------------------------------USAR VARIABLE
-            const json_busqueda = await response.json();
-            
-            console.log(json_busqueda);
-    
-                console.log("json_busqueda: " + img_busqueda + ".json");
-                console.log("Resultado 0: " + json_busqueda[0].filename + ".jpg");
-                console.log("Resultado 1: " + json_busqueda[1].filename + ".jpg");
-                console.log("Resultado 2: " + json_busqueda[2].filename + ".jpg");
-                console.log("Resultado 3: " + json_busqueda[3].filename + ".jpg");
-                console.log("Resultado 4: " + json_busqueda[4].filename + ".jpg");
-    
-                document.getElementById("result_1").setAttribute("src",  ("./images/" + json_busqueda[1].filename + ".jpg"));
-                document.getElementById("result_2").setAttribute("src",  ("./images/" + json_busqueda[2].filename + ".jpg"));
-                document.getElementById("result_3").setAttribute("src",  ("./images/" + json_busqueda[3].filename + ".jpg"));
-                document.getElementById("result_4").setAttribute("src",  ("./images/" + json_busqueda[4].filename + ".jpg"));
-                document.getElementById("result_5").setAttribute("src",  ("./images/" + json_busqueda[5].filename + ".jpg"));
-             }
-        nearestNeighbors();
+        return data;
+        //     console.log("Resultado 0: " + json_busqueda[0].filename + ".jpg");
+
     }
-    
-
-           
-    //nearestNeighbors();
+    nearestNeighbors()
 })
+
+
+
+
+// async function nearestNeighbors(ruta) {
+            
+//     //const response = await fetch("./nearest_neighbors/529.jpg.json") 
+//     const response = await fetch(ruta) // ----------------------------------------USAR VARIABLE
+//     json_busqueda = await response.json()
+
+//     console.log({json_busqueda});
+//     console.log("Resultado 0: " + json_busqueda[0].filename + ".jpg");
+//     console.log("Resultado 1: " + json_busqueda[1].filename + ".jpg");
+//     console.log("Resultado 2: " + json_busqueda[2].filename + ".jpg");
+//     console.log("Resultado 3: " + json_busqueda[3].filename + ".jpg");
+//     console.log("Resultado 4: " + json_busqueda[4].filename + ".jpg");
+
+//     document.getElementById("result_1").setAttribute("src",  ("./images/" + json_busqueda[1].filename + ".jpg"));
+//     document.getElementById("result_2").setAttribute("src",  ("./images/" + json_busqueda[2].filename + ".jpg"));
+//     document.getElementById("result_3").setAttribute("src",  ("./images/" + json_busqueda[3].filename + ".jpg"));
+//     document.getElementById("result_4").setAttribute("src",  ("./images/" + json_busqueda[4].filename + ".jpg"));
+//     document.getElementById("result_5").setAttribute("src",  ("./images/" + json_busqueda[5].filename + ".jpg"));
+// }
+
