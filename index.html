@@ -27,49 +27,56 @@
     </p>
     <hr>
 
-    <!-- --------------------------------------CARGA IMAGEN----------------------------------------------- -->
-    <div class="row">
-        <div class="upload-btn-wrapper">
-            <button class="btn upload-file font-weight-100">
-                <span class="upload-btn">
-                    <i class="material-icons d-block font-20 pb-2">cloud_upload</i>
-                    <p id="choose-text-1">Seleciona una imagen de la fotografía a identificar</p>
-                </span>
-                <span class="upload-select-button" id="blankFile-1">
-                    *archivos de tipo .png, .jpg, .jpeg, .jfif
-                </span>
-                <span class="success-1">
-                    <i class="material-icons text-success">check</i>
-                </span>
-            </button>
-            <input type="file" name="uploadImage" id="uploadImage">
+    <!-- --------------------------------------TWO COLUMN LAYOUT----------------------------------------------- -->
+    <div style="display: flex; gap: 20px; align-items: flex-start;">
+        
+        <!-- LEFT COLUMN: Upload and Search Image -->
+        <div style="flex: 1; min-width: 300px;">
+            <!-- --------------------------------------CARGA IMAGEN----------------------------------------------- -->
+            <div class="row">
+                <div class="upload-btn-wrapper">
+                    <button class="btn upload-file font-weight-100">
+                        <span class="upload-btn">
+                            <i class="material-icons d-block font-20 pb-2">cloud_upload</i>
+                            <p id="choose-text-1">Seleciona una imagen de la fotografía a identificar</p>
+                        </span>
+                        <span class="upload-select-button" id="blankFile-1">
+                            *archivos de tipo .png, .jpg, .jpeg, .jfif
+                        </span>
+                        <span class="success-1">
+                            <i class="material-icons text-success">check</i>
+                        </span>
+                    </button>
+                    <input type="file" name="uploadImage" id="uploadImage">
+                </div>
+
+                <!-- ---------------------------------------IMAGEN BUSQUEDA----------------------------------------- -->
+                <div class="box">
+                    <img src="" alt="" id="image">
+                </div>
+            </div>
         </div>
 
-        <!-- ---------------------------------------IMAGEN BUSQUEDA----------------------------------------- -->
-
-
-        <div class="box">
-            <img src="" alt="" id="image">
-        </div>
-
-
-    </div>
-    <!-- ---------------------------------------RESULTADO----------------------------------------- -->
-    <div class="row_resultados">
-        <div class="box_resultado">
-            <img src="" alt="" id="result_1" width="224" height="224">
-        </div>
-        <div class="box_resultado">
-            <img src="" alt="" id="result_2" width="224" height="224">
-        </div>
-        <div class="box_resultado">
-            <img src="" alt="" id="result_3" width="224" height="224">
-        </div>
-        <div class="box_resultado">
-            <img src="" alt="" id="result_4" width="224" height="224">
-        </div>
-        <div class="box_resultado">
-            <img src="" alt="" id="result_5" width="224" height="224">
+        <!-- RIGHT COLUMN: Results -->
+        <div style="flex: 1; min-width: 300px;">
+            <!-- ---------------------------------------RESULTADO----------------------------------------- -->
+            <div class="row_resultados">
+                <div class="box_resultado">
+                    <img src="" alt="" id="result_1" width="224" height="224">
+                </div>
+                <div class="box_resultado">
+                    <img src="" alt="" id="result_2" width="224" height="224">
+                </div>
+                <div class="box_resultado">
+                    <img src="" alt="" id="result_3" width="224" height="224">
+                </div>
+                <div class="box_resultado">
+                    <img src="" alt="" id="result_4" width="224" height="224">
+                </div>
+                <div class="box_resultado">
+                    <img src="" alt="" id="result_5" width="224" height="224">
+                </div>
+            </div>
         </div>
 
     </div>
