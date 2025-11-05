@@ -20,61 +20,49 @@
             href="https://github.com/gustavolsj/web_buscador_img"
             target="blank">enlace </a> →
     </p>
-    
-    <p style="background-color: #fff3cd; padding: 10px; border-left: 4px solid #ffc107; margin: 10px 0;">
-        <strong>⚠️ Importante:</strong> Solo puedes buscar imágenes que estén en la carpeta <code>images/</code> del proyecto. 
-        Ejemplos: 529.jpg, 533.jpg, 1128.jpg, FVCS000135.jpg, etc.
-    </p>
     <hr>
 
     <!-- --------------------------------------TWO COLUMN LAYOUT----------------------------------------------- -->
-    <div style="display: flex; gap: 20px; align-items: flex-start;">
+    <div style="display: flex; gap: 40px; align-items: flex-start;">
         
-        <!-- LEFT COLUMN: Upload and Search Image -->
-        <div style="flex: 1; min-width: 300px;">
-            <!-- --------------------------------------CARGA IMAGEN----------------------------------------------- -->
-            <div class="row">
-                <div class="upload-btn-wrapper">
-                    <button class="btn upload-file font-weight-100">
-                        <span class="upload-btn">
-                            <i class="material-icons d-block font-20 pb-2">cloud_upload</i>
-                            <p id="choose-text-1">Seleciona una imagen de la fotografía a identificar</p>
-                        </span>
-                        <span class="upload-select-button" id="blankFile-1">
-                            *archivos de tipo .png, .jpg, .jpeg, .jfif
-                        </span>
-                        <span class="success-1">
-                            <i class="material-icons text-success">check</i>
-                        </span>
-                    </button>
-                    <input type="file" name="uploadImage" id="uploadImage">
-                </div>
-
-                <!-- ---------------------------------------IMAGEN BUSQUEDA----------------------------------------- -->
-                <div class="box">
-                    <img src="" alt="" id="image">
-                </div>
+    <!-- LEFT COLUMN: Image Grid (1/3 width) -->
+    <div style="flex: 1; min-width: 300px; background: #222; border: 1px solid #333; border-radius: 12px; padding: 12px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                <p style="background-color: #1e3a5f; padding: 10px; border-left: 4px solid #64b5f6; margin: 10px 0; color: #e0e0e0;">
+                    <strong>💡 Instrucciones:</strong> Haz clic en cualquier imagen de la izquierda para buscar imágenes similares.
+                </p>
+                <span style="display:inline-block; width:24px;"></span>
+                <button id="refreshButton" style="background: transparent; color: #4caf50; border: 2px solid #4caf50; padding: 6px 14px; padding-left: 5px; border-radius: 20px; cursor: pointer; font-weight: 600; font-size: 14px; transition: all 0.3s; display: flex; align-items: center; gap: 6px;">
+                        <span style="font-size: 16px;">  </span> Refrescar
+                </button>
+            </div>
+            <div id="imageGrid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+                <!-- Grid will be populated by JavaScript -->
             </div>
         </div>
 
-        <!-- RIGHT COLUMN: Results -->
-        <div style="flex: 1; min-width: 300px;">
+    <!-- RIGHT COLUMN: Results (2/3 width) -->
+    <div style="flex: 2; min-width: 400px; background: #222; border: 1px solid #333; border-radius: 12px; padding: 12px;">
+            <h3 style="margin-bottom: 15px;">Imágenes similares:</h3>
+            <p id="noSelectionMessage" style="color: #888; padding: 20px; text-align: center;">
+                Selecciona una imagen de la izquierda para ver resultados
+            </p>
             <!-- ---------------------------------------RESULTADO----------------------------------------- -->
-            <div class="row_resultados">
+            <div class="row_resultados" style="display: none;">
                 <div class="box_resultado">
-                    <img src="" alt="" id="result_1" width="224" height="224">
+                    <img src="" alt="" id="result_1" width="150" height="150">
                 </div>
                 <div class="box_resultado">
-                    <img src="" alt="" id="result_2" width="224" height="224">
+                    <img src="" alt="" id="result_2" width="150" height="150">
                 </div>
                 <div class="box_resultado">
-                    <img src="" alt="" id="result_3" width="224" height="224">
+                    <img src="" alt="" id="result_3" width="150" height="150">
                 </div>
                 <div class="box_resultado">
-                    <img src="" alt="" id="result_4" width="224" height="224">
+                    <img src="" alt="" id="result_4" width="150" height="150">
                 </div>
                 <div class="box_resultado">
-                    <img src="" alt="" id="result_5" width="224" height="224">
+                    <img src="" alt="" id="result_5" width="150" height="150">
                 </div>
             </div>
         </div>
